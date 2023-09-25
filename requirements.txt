@@ -1,0 +1,5 @@
+pyspark==3.2.4
+pandas==1.5.3
+pytest==7.4.2
+pyarrow==13.0.0
+fastparquet==2023.8.0

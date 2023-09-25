@@ -1,0 +1,2 @@
+class SparkProfilingException(Exception):
+    pass
