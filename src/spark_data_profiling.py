@@ -38,7 +38,7 @@ def spark_data_profiling(spark:SparkSession=None, data:DataFrame=None) -> DataFr
             view_name = 'profile'        
             total_record_count = data.count()
             if total_record_count == 0:
-                raise SparkProfilingException()
+                raise SparkProfilingException(message="The source data count is 0.")
             column_list = data.columns
 
             for column in column_list:
@@ -94,5 +94,4 @@ def spark_data_profiling(spark:SparkSession=None, data:DataFrame=None) -> DataFr
                     profile_df = profile_df.unionByName(df)
             return profile_df
         except Exception as e:
-            print(str(e))
-            return None
+            raise SparkProfilingException(message=f"An Exception occured while profiling the data. EXCEPTION: {str(e)}")

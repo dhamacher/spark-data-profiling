@@ -1,3 +1,3 @@
 class SparkProfilingException(Exception):
-    """Add custom Exception here."""
-    pass
+    def __init__(self, message="A custom error occurred"):
+        super().__init__(message)
